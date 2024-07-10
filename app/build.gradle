@@ -8,8 +8,8 @@ android {
     compileSdkVersion 33
 
     defaultConfig {
-        applicationId "com.pengxh.autodingding"
-        minSdkVersion 23
+        applicationId "com.trojx.autodd"
+        minSdkVersion 24
         targetSdkVersion 33
         versionCode 146
         versionName "1.4.6"
@@ -23,6 +23,12 @@ android {
             keyAlias 'key0'
             keyPassword '123456789'
         }
+        androidOrigin {
+            keyAlias KEY_STORE_ALIAS_ANDROID_PLATFORM_ALIAS
+            keyPassword KEY_STORE_ANDROID_PLATFORM_PASSWORD
+            storePassword KEY_STORE_ANDROID_PLATFORM_PASSWORD
+            storeFile file(KEY_STORE_FILE_ANDROID_PLATFORM)
+        }
     }
 
     buildTypes {
@@ -30,12 +36,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-
-    def id = "com.android.${createRandomCode()}"
-    productFlavors {
-        auto {
-            applicationId = id
+        debug {
+            signingConfig signingConfigs.androidOrigin
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
