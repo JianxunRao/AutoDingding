@@ -245,6 +245,7 @@ class SettingsFragment : KotlinBaseFragment<FragmentSettingsBinding>(), Handler.
         binding.timeoutTextView.text = SaveKeyValues.getValue(Constant.TIMEOUT, "15s") as String
 
         binding.floatSwitch.isChecked = Settings.canDrawOverlays(requireContext())
+        binding.floatSwitch.isEnabled = false
         if (binding.floatSwitch.isChecked) {
             requireContext().startService(
                 Intent(requireContext(), FloatingWindowService::class.java)

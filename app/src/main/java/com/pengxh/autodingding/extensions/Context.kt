@@ -52,6 +52,7 @@ fun Context.openApplication(packageName: String) {
     val apps = packageManager.queryIntentActivities(resolveIntent, 0)
     val iterator: Iterator<ResolveInfo> = apps.iterator()
     if (!iterator.hasNext()) {
+        Log.w("Context", "openApplication: app not exists: $packageName" )
         return
     }
     val resolveInfo = iterator.next()

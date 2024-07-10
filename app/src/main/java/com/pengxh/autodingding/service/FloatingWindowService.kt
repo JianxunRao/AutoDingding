@@ -62,11 +62,16 @@ class FloatingWindowService : Service() {
                     || (hour == 2 && minute == 30)
                     || (hour == 5 && minute == 30)
                 ) {
-                    this@FloatingWindowService.wakeScreen()
-                    openApplication(Constant.DING_DING)
+                    withContext(Dispatchers.Main) {
+                        this@FloatingWindowService.wakeScreen()
+                        openApplication(Constant.DING_DING)
+                    }
                 } else {
-                    openApplication(Constant.DING_DING)
-                    Log.d(kTag, "startFixedTimeJob: not on time: $hour:$minute")
+                    withContext(Dispatchers.Main) {
+//                        this@FloatingWindowService.wakeScreen()
+//                        openApplication(Constant.GALLARY)
+                        Log.d(kTag, "startFixedTimeJob: not on time: $hour:$minute")
+                    }
                 }
             }
         }

@@ -25,4 +25,5 @@ object Constant {
     const val DING_DING = "com.alibaba.android.rimet"
     const val WECHAT = "com.tencent.wework"
     const val QQ = "com.tencent.mobileqq"
+    const val GALLARY = "com.android.gallery3d"
 }

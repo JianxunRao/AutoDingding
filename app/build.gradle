@@ -24,10 +24,10 @@ android {
             keyPassword '123456789'
         }
         androidOrigin {
-            keyAlias KEY_STORE_ALIAS_ANDROID_PLATFORM_ALIAS
-            keyPassword KEY_STORE_ANDROID_PLATFORM_PASSWORD
-            storePassword KEY_STORE_ANDROID_PLATFORM_PASSWORD
-            storeFile file(KEY_STORE_FILE_ANDROID_PLATFORM)
+            keyAlias 'android'
+            keyPassword 'rjx336617'
+            storePassword 'rjx336617'
+            storeFile file('../android_keys/android_platform.jks')
         }
     }
 
